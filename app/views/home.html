@@ -1,0 +1,87 @@
+<div class="homepage">
+    <div class="header text-center text-large valign-parent">
+        <div class="valign-child">
+            TO DO LIST
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="todo-list">
+            <div class="text-center">
+                <a class="btn-floating btn-large waves-effect waves-light green margin-10"
+                   ng-click="home.openAddModal()"><i class="material-icons">add</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light red margin-10"
+                   ng-click="home.openDeleteModal()"><i class="material-icons">delete</i></a>
+            </div>
+            <form action="#">
+                <div class="row valign-parent " ng-if="!home.toDoList.length">
+                    <div class="col s12 m12 text-center valign-child text-large" style="height:500px;line-height:500px;">
+                        You have not added any tasks. Use the buttons to add tasks
+                    </div>
+                </div>
+                <div class="row" ng-repeat="todo in home.toDoList">
+                    <div class="col s12 m12">
+                        <div class="card">
+
+                            <div class="card-content ">
+                                <div class="row">
+                                    <div class="col s1 m1">
+                                        <p>
+                                            <input type="checkbox" class="filled-in" id="filled-in-box{{$index}}"
+                                                   ng-click="home.checkToDo($index)"/>
+                                            <label for="filled-in-box{{$index}}"></label>
+                                        </p>
+                                    </div>
+                                    <div class="col s11 m11">
+                                        <p>{{todo}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+    <div id="modal1" class="modal modal1">
+        <div class="modal-content">
+            <h4>Add Task</h4>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea" ng-model="home.text"></textarea>
+                            <label for="textarea1">Textarea</label>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="home.addToDo()">Add</a>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal modal2">
+        <div class="modal-content">
+            <h4>Delete Task</h4>
+            <div class="row">
+                <div class="col s12 m12">
+                    Are you sure you want to delete these tasks ?
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">I changed my mind</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"
+               ng-click="home.deleteToDo()">Delete</a>
+        </div>
+
+    </div>
+</div>
+</div>
