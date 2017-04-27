@@ -56,3 +56,6 @@ html, body {
 .margin-bottom-0{
     margin-bottom: 0;
 }
+::-webkit-scrollbar{
+    display: none!important;
+}
